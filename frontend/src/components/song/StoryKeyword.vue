@@ -47,27 +47,26 @@ const clickBtn = () => {
 };
 
 let toggle = ref(false);
+let audio = new Audio();
 const startdongyo = () => {
-  let playList = [];
-  const url = "/src" + props.songDetail.songFileUrl;
-  let audio = new Audio(url);
-  var promise = audio.play();
-  if (promise !== undefined) {
-    promise
-      .then((_) => {
-        console.log(promise);
-        audio.play();
-      })
-      .catch((error) => {
-        console.log(promise);
-        audio.pause();
-      });
+  const url = "/src" + songDetail.value.songFileUrl;
+  toggle.value = !toggle.value;
+  if (toggle.value) {
+    audio.src = url;
+    audio.play();
+  } else {
+    audio.src = url;
+    audio.pause();
   }
-
   console.log(toggle.value);
 };
 
-const stopdongyo = () => {};
+const stopdongyo = () => {
+  const url = "/src" + props.songDetail.songFileUrl;
+  let audio = new Audio(url);
+  audio.pause();
+  console.log("stopdongyo");
+};
 </script>
 
 <template>
