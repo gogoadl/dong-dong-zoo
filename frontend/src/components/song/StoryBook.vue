@@ -4,6 +4,8 @@ import AudioPlayer from "vue3-audio-player";
 import "vue3-audio-player/dist/style.css";
 import { RefSongDetail } from "@/types";
 
+const assetPath = import.meta.env.VITE_ASSET_PATH;
+console.log(assetPath);
 const props = defineProps<{
   songDetail: RefSongDetail;
   pageNumber: number;
@@ -42,11 +44,9 @@ onUnmounted(() => {
         <!-- 여기에 6 대신에 props.pageNumber를 넣으면 2페이지 이후부터는 생성이 되지 않는데 왜 그런건지 도저히 모르겠습니다... -->
         <div v-for="index in 6" class="page">
           <!-- 현재 페이지의 이미지 -->
-          <!--          서버용 이미지-->
-          <v-img :src="`${props.songDetail?.songImageUrl}${index}.png`"></v-img>
-          <!--          로컬용 이미지-->
-          <!-- <v-img :src="`/src/${props.songDetail?.songImageUrl}${index}.png`"></v-img> -->
-          <!--          <v-img src="@/assets/song/bear/1.png"/>-->
+          <v-img
+            :src="`${assetPath}${props.songDetail?.songImageUrl}${index}.png`"
+          ></v-img>
         </div>
       </div>
       <v-col align="center" justify="center">
