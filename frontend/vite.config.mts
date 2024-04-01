@@ -13,11 +13,11 @@ import { fileURLToPath, URL } from "node:url";
 
 export default defineConfig({
   plugins: [
-    inject({
-      jQuery: "jquery",
-      "window.jQuery": "jquery",
-      $: "jquery",
-    }),
+    // inject({
+    //   jQuery: "jquery",
+    //   "window.jQuery": "jquery",
+    //   $: "jquery",
+    // }),
     VueRouter(),
     Layouts(),
     Vue({
