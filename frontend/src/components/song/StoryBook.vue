@@ -53,7 +53,7 @@ onUnmounted(() => {
         <v-col cols="8">
           <AudioPlayer
             :option="{
-              src: `${props.songDetail?.songFileUrl}`,
+              src: `${assetPath}${props.songDetail?.songFileUrl}`,
               title: `${props.songDetail?.songName}`,
             }"
           />
