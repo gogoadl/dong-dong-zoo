@@ -1,41 +1,56 @@
 <script setup lang="ts">
 import { defineProps, ref, onMounted, onUnmounted, watch } from "vue";
+import ServerStoryBook from "../song/ServerStoryBook.vue";
 import AudioPlayer from "vue3-audio-player";
 import "vue3-audio-player/dist/style.css";
 import { useRoute, useRouter } from "vue-router";
 import { useSongStore } from "@/store/song";
 import { HttpStatusCode } from "axios";
-import CreateLoadingView from "@/components/common/CreateLoadingView.vue";
 import { RefStoryImageRes, RefSongDetail } from "@/types/";
+import { useLoadingStore } from "@/store/loading";
 
+const loadingStore = useLoadingStore();
 const route = useRoute();
 const songId = route.params.songId;
 const tag = route.params.tag;
+const { songName, songUrl } = history.state;
 const songStore = useSongStore();
 
+console.log(songName);
+console.log(songUrl);
 // 새롭게 생성된 이미지 url 리스트
-const List = ref<RefStoryImageRes>();
+const storyImages = ref<RefStoryImageRes[]>(null);
 
+loadingStore.contentLoading();
 songStore.createSong(
   songId as string,
   tag as string,
   (res) => {
     if (res.status == HttpStatusCode.Ok) {
       console.log(res.data);
-      List.value = res.data;
-      console.log(List.value);
+      storyImages.value = res.data;
+      console.log(storyImages.value);
+      loadingStore.contentLoaded();
     }
   },
-  (err) => {}
+  (err) => {
+    console.error(err);
+    loadingStore.contentLoaded();
+  }
 );
 
 // StoryBook
 </script>
 <template>
-  <!-- <CreateLoadingView></CreateLoadingView> -->
-
   <v-container>
-    <StoryBook />
+    <template v-if="storyImages">
+      <ServerStoryBook
+        :pageNumber="storyImages.length"
+        :storyImages="storyImages"
+        :songName="songName"
+        :songUrl="songUrl"
+      />
+    </template>
   </v-container>
 </template>
 
