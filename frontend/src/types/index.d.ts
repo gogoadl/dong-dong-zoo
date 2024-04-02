@@ -33,7 +33,7 @@ export interface SongDetail {
 }
 
 export interface StoryImageRes {
-  startTime: number;
+  startTime: string;
   content: string;
   imageURL: string | null;
 }
