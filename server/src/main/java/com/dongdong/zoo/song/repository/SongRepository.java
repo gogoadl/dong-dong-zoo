@@ -43,7 +43,7 @@ public interface SongRepository extends JpaRepository<Song, Long> {
     //             + "left join SongLikes nsl on ns.song.songId = nsl.song.songId "
     //         + "group by ns.songId "
     //         + "order by ns.views desc, likeCount desc ")
-    @Query(value = "select s2.song_id, s2.song_name, s2.song_image_url, s2.views, count(sl2.song_likes_id) as likeCount "
+    @Query(value = "select s2.song_id as songId , s2.song_name as songName, s2.song_image_url as songImageUrl, s2.views, count(sl2.song_likes_id) as likeCount "
         + "from "
         + "(select s.song_id, s.song_name, s.song_image_url, s.views "
         + "from song s "
