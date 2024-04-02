@@ -54,8 +54,9 @@ const goBack = () => {
 };
 
 watch(songDetail, () => {
-  fullImageUrl.value = `${assetPath}${songDetail.value.songImageUrl}`;
+  fullImageUrl.value = `${songDetail.value.songImageUrl}`;
   pageNumber.value = songDetail.value.lyricsList.length;
+  console.log(fullImageUrl.value);
   console.log(pageNumber.value);
 });
 
