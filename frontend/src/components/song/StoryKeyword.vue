@@ -3,7 +3,7 @@ import { ref, defineProps, watch } from "vue";
 import { useRouter } from "vue-router";
 import { RefSongDetail } from "@/types";
 import SongDetail from "./SongDetail.vue";
-
+const assetPath = import.meta.env.VITE_ASSET_PATH;
 const props = defineProps<{
   songDetail: RefSongDetail;
 }>();
@@ -54,7 +54,7 @@ const clickBtn = () => {
 let toggle = ref(false);
 let audio = new Audio();
 const startdongyo = () => {
-  const url = "/src" + songDetail.value.songFileUrl;
+  const url = assetPath + songDetail.value.songFileUrl;
   toggle.value = !toggle.value;
   if (toggle.value) {
     audio.src = url;
@@ -79,12 +79,13 @@ const stopdongyo = () => {
     <v-row rows="12" class="ma-0 mt-2 pa-0">
       <v-row rows="12" class="detail-container" style="height: 250px">
         <v-col cols="6">
-          <v-btn width="100%" height="100%" class="radius-12 song-preview">
-            <h1
-              class="mb-12"
-              style="color: white; font-size: 48px"
-              @click="startdongyo()"
-            >
+          <v-btn
+            width="100%"
+            height="100%"
+            class="radius-12 song-preview"
+            @click="startdongyo"
+          >
+            <h1 class="mb-12" style="color: white; font-size: 48px">
               동요 미리듣기
             </h1></v-btn
           >
