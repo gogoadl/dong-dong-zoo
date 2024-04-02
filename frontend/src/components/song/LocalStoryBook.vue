@@ -4,6 +4,8 @@ import AudioPlayer from "vue3-audio-player";
 import "vue3-audio-player/dist/style.css";
 import { RefSongDetail } from "@/types";
 
+const assetPath = import.meta.env.VITE_ASSET_PATH;
+console.log(assetPath);
 const props = defineProps<{
   songDetail: RefSongDetail;
   pageNumber: number;
@@ -47,7 +49,6 @@ onUnmounted(() => {
         <!-- props 받은 후 생성 vs props 받기 전 생성 시점 차이 -->
         <div v-for="index in props.pageNumber" class="page">
           <!-- 현재 페이지의 이미지 -->
-          {{ console.log("for 실행 ") }}
           <v-img
             :src="`${assetPath}${props.songDetail?.songImageUrl}${index}.png`"
           ></v-img>
@@ -57,7 +58,7 @@ onUnmounted(() => {
         <v-col cols="8">
           <AudioPlayer
             :option="{
-              src: `${props.songDetail?.songFileUrl}`,
+              src: `${assetPath}${props.songDetail?.songFileUrl}`,
               title: `${props.songDetail?.songName}`,
             }"
           />

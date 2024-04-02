@@ -13,11 +13,11 @@ import { fileURLToPath, URL } from "node:url";
 
 export default defineConfig({
   plugins: [
-    inject({
-      jQuery: "jquery",
-      "window.jQuery": "jquery",
-      $: "jquery",
-    }),
+    // inject({
+    //   jQuery: "jquery",
+    //   "window.jQuery": "jquery",
+    //   $: "jquery",
+    // }),
     VueRouter(),
     Layouts(),
     Vue({
@@ -60,4 +60,7 @@ export default defineConfig({
   server: {
     port: 3000,
   },
+  // 개발 환경에서는 .env.development 파일을 로드
+  // 프로덕션 환경에서는 .env.production 파일을 로드
+  envDir: process.env.NODE_ENV === "production" ? "./" : "./",
 });
