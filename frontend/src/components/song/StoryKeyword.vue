@@ -101,7 +101,7 @@ const stopdongyo = () => {
                 rounded
                 v-bind="activatorProps"
                 text=""
-                ><h1 class="mb-12" style="color: skyblue; font-size: 48px">
+                ><h1 class="mb-12" style="color: white; font-size: 48px">
                   동화 생성하기
                 </h1></v-btn
               >
