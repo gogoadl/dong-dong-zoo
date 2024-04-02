@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import StoryBook from "./StoryBook.vue";
+import LocalStoryBook from "./LocalStoryBook.vue";
 import StoryKeyword from "./StoryKeyword.vue";
 
 import { ref, onMounted, watch } from "vue";
@@ -147,7 +147,7 @@ onMounted(() => {
   </v-row>
 
   <v-container>
-    <StoryBook :songDetail="songDetail" :pageNumber="pageNumber" />
+    <LocalStoryBook :songDetail="songDetail" :pageNumber="pageNumber" />
   </v-container>
 </template>
 

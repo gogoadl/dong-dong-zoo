@@ -36,9 +36,14 @@ const highlightBtn = (index) => {
 };
 
 const clickBtn = () => {
+  console.log(props.songDetail);
   console.log(props.songDetail.songKeywordList[nowindex.value]);
   router.push({
     name: "create",
+    state: {
+      songUrl: props.songDetail.songFileUrl,
+      songName: props.songDetail.songName,
+    },
     params: {
       tag: props.songDetail.songKeywordList[nowindex.value],
       songId: songDetail.value.songId,
