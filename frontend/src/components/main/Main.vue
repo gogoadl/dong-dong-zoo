@@ -108,10 +108,10 @@ onUnmounted(() => {
 }
 
 .inner-btn {
-  width: 300px;
-  height: 200px;
+  min-width: 300px;
+  min-height: 50px;
   position: absolute;
   margin-left: 100px;
-  margin-top: 400px;
+  margin-top: 200px;
 }
 </style>
