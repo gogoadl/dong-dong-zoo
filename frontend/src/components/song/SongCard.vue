@@ -2,7 +2,7 @@
 import { ref, defineProps } from "vue";
 import { RouterLink } from "vue-router";
 import { RefSong } from "@/types";
-
+const assetPath = import.meta.env.VITE_ASSET_PATH;
 const props = defineProps<{
   song: RefSong;
 }>();
@@ -15,11 +15,10 @@ const props = defineProps<{
     :to="{ name: 'songDetail', params: { songId: props.song.songId } }"
   >
     <v-card class="songcard">
-      <!--      서버용-->
-      <!-- <v-img
+      <v-img
         class="white--text"
         height="200px"
-        :src="props.song.songImageUrl + '/0.png'"
+        :src="assetPath + props.song.songImageUrl + '/0.png'"
         style="margin: 10px"
       > -->
       <!--        로컬용 이미지-->
