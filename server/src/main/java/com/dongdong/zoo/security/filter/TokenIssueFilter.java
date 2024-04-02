@@ -42,8 +42,8 @@ public class TokenIssueFilter extends OncePerRequestFilter {
 			CustomUserDetails userDetails = (CustomUserDetails) authentication.getPrincipal();
 			tokenManagementService.saveRefreshToken(userDetails.getUserId().toString(), tokenDto.getRefreshToken());
 
-			PrintWriter writer = response.getWriter();
-			writer.write(tokenDto.toString()); // todo: not just string
+			// PrintWriter writer = response.getWriter();
+			// writer.write(tokenDto.toString()); // todo: not just string
 
 			//            response.setHeader("Authorization", "Bearer " + );
 		}
