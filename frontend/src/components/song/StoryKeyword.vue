@@ -36,15 +36,37 @@ const highlightBtn = (index) => {
 };
 
 const clickBtn = () => {
-    console.log(props.songDetail.songKeywordList[nowindex.value])
-    router.push({
-      name: 'create',
-      params: {
-        tag : props.songDetail.songKeywordList[nowindex.value],
-        songId: songDetail.value.songId,
-      }
-    })
-}
+  console.log(props.songDetail.songKeywordList[nowindex.value]);
+  router.push({
+    name: "create",
+    params: {
+      tag: props.songDetail.songKeywordList[nowindex.value],
+      songId: songDetail.value.songId,
+    },
+  });
+};
+
+let toggle = ref(false);
+let audio = new Audio();
+const startdongyo = () => {
+  const url = "/src" + songDetail.value.songFileUrl;
+  toggle.value = !toggle.value;
+  if (toggle.value) {
+    audio.src = url;
+    audio.play();
+  } else {
+    audio.src = url;
+    audio.pause();
+  }
+  console.log(toggle.value);
+};
+
+const stopdongyo = () => {
+  const url = "/src" + props.songDetail.songFileUrl;
+  let audio = new Audio(url);
+  audio.pause();
+  console.log("stopdongyo");
+};
 </script>
 
 <template>
@@ -53,7 +75,11 @@ const clickBtn = () => {
       <v-row rows="12" class="detail-container" style="height: 250px">
         <v-col cols="6">
           <v-btn width="100%" height="100%" class="radius-12 song-preview">
-            <h1 class="mb-12" style="color: white; font-size: 48px">
+            <h1
+              class="mb-12"
+              style="color: white; font-size: 48px"
+              @click="startdongyo()"
+            >
               동요 미리듣기
             </h1></v-btn
           >
@@ -70,7 +96,7 @@ const clickBtn = () => {
                 rounded
                 v-bind="activatorProps"
                 text=""
-                ><h1 class="mb-12" style="color: white; font-size: 48px">
+                ><h1 class="mb-12" style="color: skyblue; font-size: 48px">
                   동화 생성하기
                 </h1></v-btn
               >
