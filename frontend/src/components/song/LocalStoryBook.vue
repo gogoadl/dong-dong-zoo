@@ -49,15 +49,6 @@ onMounted(() => {
       acceleration: true,
       pages: props.pageNumber,
     });
-<<<<<<< HEAD
-    interval = setInterval(() => {
-      (<any>$("#book")).turn("page", currentPage++);
-      if (currentPage > props.pageNumber) {
-        console.log(currentPage);
-        clearInterval(interval);
-      }
-    }, 1000);
-=======
     // interval = setInterval(() => {
     //   (<any>$("#book")).turn("page", currentPage++);
     //   if (currentPage > props.pageNumber) {
@@ -65,7 +56,6 @@ onMounted(() => {
     //     clearInterval(interval);
     //   }
     // }, 1000);
->>>>>>> 6d50aa2e7837fde688e3cd703470b947821b9d13
   }, 500);
 });
 

@@ -60,7 +60,4 @@ export default defineConfig({
   server: {
     port: 3000,
   },
-  // 개발 환경에서는 .env.development 파일을 로드
-  // 프로덕션 환경에서는 .env.production 파일을 로드
-  envDir: process.env.NODE_ENV === "production" ? "./" : "./",
 });
