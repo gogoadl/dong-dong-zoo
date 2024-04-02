@@ -10,6 +10,7 @@ declare module 'vue' {
     Auth: typeof import('./src/components/appbar/Auth.vue')['default']
     CreateLoadingView: typeof import('./src/components/common/CreateLoadingView.vue')['default']
     FloatingButton: typeof import('./src/components/common/FloatingButton.vue')['default']
+    GuideView: typeof import('./src/components/common/GuideView.vue')['default']
     LoadingView: typeof import('./src/components/common/LoadingView.vue')['default']
     LocalStoryBook: typeof import('./src/components/song/LocalStoryBook.vue')['default']
     Main: typeof import('./src/components/main/Main.vue')['default']

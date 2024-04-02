@@ -29,7 +29,7 @@ onMounted(() => {
         clearInterval(interval);
       }
     }, 1000);
-  }, 100);
+  }, 500);
 });
 
 onUnmounted(() => {

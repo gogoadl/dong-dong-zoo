@@ -21,7 +21,7 @@ const doScroll = (event: any) => {
 
 const goSongList = () => {
   console.log("call goback");
-  router.push('SongList');
+  router.push("SongList");
 };
 
 onMounted(() => {
@@ -46,7 +46,7 @@ onUnmounted(() => {
               </h1>
               <h3 class="inner-text-h3">
                 동동주의 서비스는 생성형 AI를 기반으로 동요를 동화로
-                변환해줍니다 ~ 어쩌구
+                변환해줍니다.
               </h3>
             </v-img>
           </v-row>
@@ -106,11 +106,12 @@ onUnmounted(() => {
   color: white;
   font-size: 24px;
 }
+
 .inner-btn {
   width: 300px;
   height: 200px;
   position: absolute;
   margin-left: 100px;
-  margin-top: 300px;
+  margin-top: 400px;
 }
 </style>
