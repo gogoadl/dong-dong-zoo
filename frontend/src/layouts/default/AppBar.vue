@@ -19,13 +19,7 @@ watch(
 <template>
   <v-app-bar :elevation="0">
     <RouterLink to="/">
-      <v-img
-        class="logo"
-        width="126px"
-        height="48px"
-        position="left"
-        src="@/assets/logo-1.svg"
-      />
+      <v-img class="logo" src="@/assets/logo-1.svg" />
     </RouterLink>
     <v-spacer />
     <!-- 이용방법 모달 버튼 -->
@@ -35,7 +29,7 @@ watch(
           v-bind="activatorProps"
           text="이용 방법"
           variant="flat"
-          style="color: blue"
+          style="color: blue; font-size: 25px"
         ></v-btn>
       </template>
 
@@ -66,7 +60,7 @@ watch(
       </template>
     </v-dialog>
     <RouterLink to="/songList">
-      <v-btn text="서비스 이용하기"></v-btn>
+      <v-btn text="서비스 이용하기" class="service_btn"></v-btn>
     </RouterLink>
     <Auth v-if="user" :user="user" />
     <NotAuth v-else />
@@ -74,11 +68,18 @@ watch(
 </template>
 <style>
 .logo {
+  width: 200px;
+  height: 65px;
   margin: 50px;
+  position: "left";
 }
 
 .card_content {
   background: url("../../assets/background.gif");
   background-size: cover;
+}
+
+.service_btn {
+  font-size: 25px;
 }
 </style>

@@ -36,5 +36,6 @@ onUnmounted(() => {
 .background {
   background: url("../../assets/background.gif");
   background-size: cover;
+  margin-top: 50px;
 }
 </style>
