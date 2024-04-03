@@ -3,8 +3,10 @@ import { ref } from "vue";
 import { SignUp } from "@/types";
 import { useUserStore } from "@/store/user";
 import { HttpStatusCode } from "axios";
+import { useRouter } from "vue-router";
 
 const userStore = useUserStore();
+const router = useRouter();
 
 const data = ref<SignUp>({
   username: "",
@@ -73,6 +75,7 @@ const requestSignUp = () => {
     data.value,
     (res) => {
       if (res.status == HttpStatusCode.Ok) {
+        router.push("/login");
         console.log(res.data);
       }
     },
