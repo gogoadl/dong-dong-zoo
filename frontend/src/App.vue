@@ -1,11 +1,11 @@
+<script lang="ts" setup>
+import Def from "./layouts/Def.vue";
+</script>
+
 <template>
   <v-app>
     <v-main>
-      <router-view />
+      <Def />
     </v-main>
   </v-app>
 </template>
-
-<script lang="ts" setup>
-  //
-</script>
