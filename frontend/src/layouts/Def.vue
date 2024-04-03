@@ -8,6 +8,7 @@ import LoadingView from "@/components/common/LoadingView.vue";
 <template>
   <v-app>
     <DefaultBar />
+    d
     <DefaultView />
     <Footer />
     <LoadingView v-if="useLoadingStore().loading"></LoadingView>
