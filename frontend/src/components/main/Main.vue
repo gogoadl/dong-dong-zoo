@@ -92,7 +92,7 @@ onUnmounted(() => {
 .card {
   margin-top: 50px;
   border-radius: 50px;
-  height: 500px;
+  height: 100%;
 }
 .inner-text-h1 {
   margin-top: 100px;
