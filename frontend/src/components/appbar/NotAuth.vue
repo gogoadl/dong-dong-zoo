@@ -6,9 +6,9 @@ import { RouterLink } from "vue-router";
   <RouterLink to="/login">
     <v-btn text="로그인"></v-btn>
   </RouterLink>
-  <RouterLink to="/signup">
+  <!-- <RouterLink to="/signup">
     <v-btn text="회원가입"></v-btn>
-  </RouterLink>
+  </RouterLink> -->
 </template>
 
 <style scoped></style>

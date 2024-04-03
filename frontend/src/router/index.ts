@@ -1,12 +1,13 @@
 import { createRouter, createWebHistory, useRoute } from "vue-router";
 import index from "@/pages/index.vue";
-import dongyoList from "@/pages/DongYoList.vue";
-import dongyoDetail from "@/pages/DongYoDetail.vue";
+import SongList from "@/pages/SongList.vue";
+import MySongList from "@/pages/MySongList.vue";
+import SongDetail from "@/pages/SongDetail.vue";
+import StoryCreate from "@/pages/StoryCreate.vue";
 
 import Login from "@/pages/Login.vue";
 import SignUp from "@/pages/SignUp.vue";
-import { useUserStore } from "@/store/app";
-import { useLoadingStore } from "@/store/loading";
+import { useUserStore } from "@/store/user";
 import { RouteRecordRaw } from "vue-router";
 
 const routes = [
@@ -31,21 +32,29 @@ const routes = [
     name: "signup",
     component: SignUp,
     meta: {
-      requiresAuth: true,
+      requiresAuth: false,
     },
   },
   {
-    path: "/dongyoList",
-    name: "dongyoList",
-    component: dongyoList,
+    path: "/songList",
+    name: "songList",
+    component: SongList,
     meta: {
       requiresAuth: false,
     },
   },
   {
-    path: "/dongyoDetail",
-    name: "dongyoDetail",
-    component: dongyoDetail,
+    path: "/mySongList",
+    name: "mySongList",
+    component: MySongList,
+    meta: {
+      requiresAuth: true,
+    },
+  },
+  {
+    path: "/songDetail/:songId",
+    name: "songDetail",
+    component: SongDetail,
     meta: {
       requiresAuth: false,
     },
@@ -58,6 +67,14 @@ const routes = [
       requiresAuth: false,
     },
   },
+  {
+    path: "/create/:songId/:tag",
+    name: "create",
+    component: StoryCreate,
+    meta: {
+      requiresAuth: false,
+    },
+  },
 ] as RouteRecordRaw[];
 
 const router = createRouter({
@@ -66,7 +83,6 @@ const router = createRouter({
 });
 
 router.beforeEach((to, from, next) => {
-  const loadingStore = useLoadingStore();
   const route = useRoute();
 
   if (to.meta.requiresAuth !== undefined) {

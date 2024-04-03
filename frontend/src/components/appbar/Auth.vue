@@ -1,23 +1,16 @@
 <script setup lang="ts">
 import { defineProps, ref, watch, onMounted } from "vue";
 import type { User } from "@/types";
-import type { PropType } from "vue";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
-import { fas } from "@fortawesome/free-solid-svg-icons";
+import { useUserStore } from "@/store/user";
+import { useRouter } from "vue-router";
+const userStore = useUserStore();
+const router = useRouter();
 const props = defineProps<{ user: User }>();
 
-const user = ref<User | null>(null);
+const user = ref<User>(null);
 
 const drawerState = ref(false);
-
-const items = ref([
-  {
-    title: 1,
-  },
-  {
-    title: 2,
-  },
-]);
 
 watch(
   () => props.user,
@@ -25,10 +18,6 @@ watch(
     user.value = newVal;
   }
 );
-
-onMounted(() => {
-  user.value = props.user;
-});
 
 const toggleState = () => {
   drawerState.value = !drawerState.value;
@@ -38,12 +27,15 @@ const myFairyTales = () => {
   toggleState();
 };
 
-const myAgitation = () => {
+const mySongs = () => {
   toggleState();
+  router.push("/mySongList");
 };
 
 const logout = () => {
   toggleState();
+  userStore.logout();
+  router.push("/");
 };
 </script>
 
@@ -51,7 +43,7 @@ const logout = () => {
   <v-btn class="container" @click="toggleState" id="menu-activator">
     <v-menu activator="#menu-activator">
       <v-list>
-        <v-list-item>
+        <!-- <v-list-item>
           <v-btn elevation="0" class="menu-btn" @click="myFairyTales">
             <v-list-item-title
               ><font-awesome-icon
@@ -60,9 +52,9 @@ const logout = () => {
               />내가 만든 동화</v-list-item-title
             >
           </v-btn>
-        </v-list-item>
+        </v-list-item> -->
         <v-list-item>
-          <v-btn elevation="0" class="menu-btn" @click="myAgitation">
+          <v-btn elevation="0" class="menu-btn" @click="mySongs">
             <v-list-item-title>
               <font-awesome-icon
                 :icon="['fas', 'book-open']"
@@ -98,7 +90,7 @@ const logout = () => {
           <font-awesome-icon :icon="['fas', 'user']" style="margin-top: 4px" />
         </div>
       </v-col>
-      <v-col cols="auto"> {{ user?.nickName }}</v-col>
+      <v-col cols="auto">동동이</v-col>
       <v-col cols="3">
         <transition name="fade">
           <div>

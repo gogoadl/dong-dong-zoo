@@ -2,7 +2,7 @@ import { defineStore } from "pinia";
 import { computed, ref } from "vue";
 
 export const useLoadingStore = defineStore("loading", () => {
-  const contentLoadComplete = ref(false);
+  const contentLoadComplete = ref(true);
 
   const contentLoading = () => {
     console.log("contentLoading called");

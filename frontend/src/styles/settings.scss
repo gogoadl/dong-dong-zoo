@@ -44,3 +44,16 @@ td,
   transform: translateY(20px);
   opacity: 0;
 }
+
+// for storyBook style
+.shadow {
+  border-radius: 12px;
+}
+.page-wrapper {
+  border-radius: 12px;
+}
+
+// router-link remove underline
+.router-link {
+  text-decoration: none;
+}
