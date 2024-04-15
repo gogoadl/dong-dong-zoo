@@ -16,7 +16,7 @@
 
 * [고승민](https://github.com/smink112) - 팀장, INFRA(서버 환경 구축), Backend (동요 리스트, 동요 상세, 좋아요, DB)
 * [김기찬](https://github.com/TearofCoding) - 팀원, AI(prompt 커스터마이징), Backend (동요 기반 동화 생성)
-* [박현우](https://github.com/gogoadl) - 팀원, Backend (메인 페이지, 로그인 페이지, 동요 목록 페이지, 동요 상세 페이지)
+* [박현우](https://github.com/gogoadl) - 팀원, Frontend (메인 페이지, 로그인 페이지, 동요 목록 페이지, 동요 상세 페이지)
 * [유제훈](https://github.com/JehunYoo) - 팀원, Backend (인증, 로그인, 회원가입, 좋아요 동요 목록)
 * [차승윤](https://github.com/sycha11) - 팀원, Frontend (동화 제작 페이지, 동화 페이지, 동요 좋아요 목록 페이지)
 
